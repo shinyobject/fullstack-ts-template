@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(git -C /workspaces/test1 status)",
+      "Bash(git init:*)",
+      "Bash(chmod:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(lsof:*)",
+      "Bash(git config:*)",
+      "Bash(ssh -T -o ConnectTimeout=5 peteruchytil@192.168.2.1 echo \"Connection successful\")"
+    ]
+  }
+}
