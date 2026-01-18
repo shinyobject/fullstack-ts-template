@@ -1,12 +1,15 @@
 import Database from 'better-sqlite3';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync, mkdirSync } from 'fs';
+import { join, dirname } from 'path';
 import { Todo, CreateTodoInput, UpdateTodoInput } from './types';
 
 const DB_PATH = process.env.DB_PATH || join(__dirname, '../database/todos.db');
 
+// Ensure database directory exists
+mkdirSync(dirname(DB_PATH), { recursive: true });
+
 // Initialize database connection
-const db = new Database(DB_PATH);
+const db: Database.Database = new Database(DB_PATH);
 db.pragma('journal_mode = WAL');
 
 // Initialize database schema
