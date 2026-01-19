@@ -9,7 +9,13 @@
       "Bash(git commit:*)",
       "Bash(lsof:*)",
       "Bash(git config:*)",
-      "Bash(ssh -T -o ConnectTimeout=5 peteruchytil@192.168.2.1 echo \"Connection successful\")"
+      "Bash(ssh -T -o ConnectTimeout=5 peteruchytil@192.168.2.1 echo \"Connection successful\")",
+      "Bash(netstat:*)",
+      "Bash(ss:*)",
+      "Bash(ssh:*)",
+      "Bash(curl:*)",
+      "Bash(jq:*)",
+      "Bash(git push:*)"
     ]
   }
 }
