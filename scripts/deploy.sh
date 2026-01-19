@@ -52,14 +52,29 @@ git push m1-production $BRANCH || {
 
 # Deploy on M1
 echo "📤 Deploying on M1..."
-ssh "$M1_SSH_HOST" "bash -s" << EOF
+ssh "$M1_SSH_HOST" bash -s "$M1_DEPLOY_PATH" "$BRANCH" << 'EOF'
   set -e
 
+  M1_DEPLOY_PATH=$1
+  BRANCH=$2
+
+  # Load nvm, homebrew, or other PATH modifications
+  if [ -f ~/.zshrc ]; then
+    source ~/.zshrc
+  elif [ -f ~/.bash_profile ]; then
+    source ~/.bash_profile
+  elif [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+  fi
+
+  # Add common paths for Homebrew node
+  export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
   echo "📂 Navigating to deployment directory..."
-  cd $M1_DEPLOY_PATH
+  cd "$M1_DEPLOY_PATH"
 
   echo "⬇️  Pulling latest changes..."
-  git pull origin $BRANCH
+  git pull origin "$BRANCH"
 
   echo "📦 Installing server dependencies..."
   cd server
