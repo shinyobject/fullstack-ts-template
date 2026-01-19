@@ -12,6 +12,7 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
+    allowedHosts: ['todo.shinyobject.me'],
   },
   build: {
     outDir: 'dist',
