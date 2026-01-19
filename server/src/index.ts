@@ -9,7 +9,7 @@ import { closeDatabase } from './db';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = Number(process.env.PORT) || 3001;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Middleware
@@ -36,7 +36,7 @@ if (NODE_ENV === 'production') {
 }
 
 // Start server
-const server = app.listen(PORT, () => {
+const server = app.listen(PORT, 'localhost', () => {
   console.log(`Server running on port ${PORT} in ${NODE_ENV} mode`);
   console.log(`Health check: http://localhost:${PORT}/api/health`);
   if (NODE_ENV === 'development') {
