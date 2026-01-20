@@ -36,7 +36,7 @@ if (NODE_ENV === 'production') {
 }
 
 // Start server
-const server = app.listen(PORT, 'localhost', () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT} in ${NODE_ENV} mode`);
   console.log(`Health check: http://localhost:${PORT}/api/health`);
   if (NODE_ENV === 'development') {

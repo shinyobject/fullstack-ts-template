@@ -16,7 +16,8 @@
       "Bash(curl:*)",
       "Bash(jq:*)",
       "Bash(git push:*)",
-      "Bash(gh auth status:*)"
+      "Bash(gh auth status:*)",
+      "Bash(git log:*)"
     ]
   }
 }
