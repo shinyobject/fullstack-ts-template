@@ -17,7 +17,7 @@ module.exports = {
     },
     {
       name: 'cloudflare-tunnel',
-      script: 'cloudflared',
+      script: '/usr/local/bin/cloudflared',
       args: 'tunnel run todo-app',
       autorestart: true,
       watch: false,
